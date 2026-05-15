@@ -174,9 +174,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e1" value="rep"   onchange="upd(1,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e1" value="norep" onchange="upd(1,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi1" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec1" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -210,9 +210,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e2" value="rep"   onchange="upd(2,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e2" value="norep" onchange="upd(2,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi2" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec2" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -246,9 +246,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e3" value="rep"   onchange="upd(3,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e3" value="norep" onchange="upd(3,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi3" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec3" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -282,9 +282,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e8" value="rep"   onchange="upd(8,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e8" value="norep" onchange="upd(8,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi8" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec8" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -318,9 +318,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e10" value="rep"   onchange="upd(10,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e10" value="norep" onchange="upd(10,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi10" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec10" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -354,9 +354,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e11" value="rep"   onchange="upd(11,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e11" value="norep" onchange="upd(11,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi11" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec11" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -390,9 +390,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e12" value="rep"   onchange="upd(12,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e12" value="norep" onchange="upd(12,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi12" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec12" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -426,9 +426,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e28" value="rep"   onchange="upd(28,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e28" value="norep" onchange="upd(28,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi28" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec28" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -462,9 +462,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e29" value="rep"   onchange="upd(29,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e29" value="norep" onchange="upd(29,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi29" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec29" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -498,9 +498,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e35" value="rep"   onchange="upd(35,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e35" value="norep" onchange="upd(35,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi35" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec35" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -534,9 +534,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e36" value="rep"   onchange="upd(36,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e36" value="norep" onchange="upd(36,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi36" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec36" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -570,9 +570,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e37" value="rep"   onchange="upd(37,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e37" value="norep" onchange="upd(37,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi37" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec37" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -606,9 +606,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e38" value="rep"   onchange="upd(38,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e38" value="norep" onchange="upd(38,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi38" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec38" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -642,9 +642,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e39" value="rep"   onchange="upd(39,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e39" value="norep" onchange="upd(39,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi39" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec39" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -678,9 +678,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e41" value="rep"   onchange="upd(41,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e41" value="norep" onchange="upd(41,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi41" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec41" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -714,9 +714,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e42" value="rep"   onchange="upd(42,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e42" value="norep" onchange="upd(42,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi42" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec42" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -750,9 +750,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e44" value="rep"   onchange="upd(44,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e44" value="norep" onchange="upd(44,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi44" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec44" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -786,9 +786,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e45" value="rep"   onchange="upd(45,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e45" value="norep" onchange="upd(45,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi45" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec45" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -822,9 +822,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e46" value="rep"   onchange="upd(46,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e46" value="norep" onchange="upd(46,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi46" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec46" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -858,9 +858,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e50" value="rep"   onchange="upd(50,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e50" value="norep" onchange="upd(50,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi50" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec50" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -894,9 +894,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e51" value="rep"   onchange="upd(51,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e51" value="norep" onchange="upd(51,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi51" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec51" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -930,9 +930,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e52" value="rep"   onchange="upd(52,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e52" value="norep" onchange="upd(52,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi52" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec52" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -966,9 +966,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e87" value="rep"   onchange="upd(87,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e87" value="norep" onchange="upd(87,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi87" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec87" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1002,9 +1002,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e88" value="rep"   onchange="upd(88,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e88" value="norep" onchange="upd(88,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi88" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec88" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1038,9 +1038,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e89" value="rep"   onchange="upd(89,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e89" value="norep" onchange="upd(89,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi89" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec89" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1074,9 +1074,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e97" value="rep"   onchange="upd(97,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e97" value="norep" onchange="upd(97,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi97" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec97" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1116,9 +1116,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e4" value="rep"   onchange="upd(4,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e4" value="norep" onchange="upd(4,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi4" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec4" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1152,9 +1152,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e5" value="rep"   onchange="upd(5,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e5" value="norep" onchange="upd(5,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi5" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec5" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1188,9 +1188,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e6" value="rep"   onchange="upd(6,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e6" value="norep" onchange="upd(6,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi6" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec6" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1224,9 +1224,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e7" value="rep"   onchange="upd(7,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e7" value="norep" onchange="upd(7,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi7" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec7" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1260,9 +1260,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e9" value="rep"   onchange="upd(9,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e9" value="norep" onchange="upd(9,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi9" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec9" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1296,9 +1296,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e13" value="rep"   onchange="upd(13,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e13" value="norep" onchange="upd(13,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi13" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec13" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1332,9 +1332,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e14" value="rep"   onchange="upd(14,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e14" value="norep" onchange="upd(14,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi14" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec14" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1368,9 +1368,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e15" value="rep"   onchange="upd(15,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e15" value="norep" onchange="upd(15,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi15" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec15" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1404,9 +1404,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e16" value="rep"   onchange="upd(16,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e16" value="norep" onchange="upd(16,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi16" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec16" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1440,9 +1440,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e17" value="rep"   onchange="upd(17,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e17" value="norep" onchange="upd(17,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi17" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec17" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1476,9 +1476,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e18" value="rep"   onchange="upd(18,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e18" value="norep" onchange="upd(18,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi18" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec18" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1512,9 +1512,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e19" value="rep"   onchange="upd(19,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e19" value="norep" onchange="upd(19,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi19" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec19" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1548,9 +1548,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e20" value="rep"   onchange="upd(20,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e20" value="norep" onchange="upd(20,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi20" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec20" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1584,9 +1584,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e21" value="rep"   onchange="upd(21,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e21" value="norep" onchange="upd(21,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi21" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec21" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1620,9 +1620,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e22" value="rep"   onchange="upd(22,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e22" value="norep" onchange="upd(22,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi22" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec22" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1656,9 +1656,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e23" value="rep"   onchange="upd(23,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e23" value="norep" onchange="upd(23,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi23" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec23" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1692,9 +1692,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e24" value="rep"   onchange="upd(24,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e24" value="norep" onchange="upd(24,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi24" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec24" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1728,9 +1728,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e25" value="rep"   onchange="upd(25,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e25" value="norep" onchange="upd(25,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi25" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec25" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1764,9 +1764,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e26" value="rep"   onchange="upd(26,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e26" value="norep" onchange="upd(26,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi26" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec26" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1800,9 +1800,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e27" value="rep"   onchange="upd(27,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e27" value="norep" onchange="upd(27,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi27" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec27" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1836,9 +1836,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e30" value="rep"   onchange="upd(30,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e30" value="norep" onchange="upd(30,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi30" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec30" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1872,9 +1872,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e31" value="rep"   onchange="upd(31,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e31" value="norep" onchange="upd(31,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi31" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec31" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1908,9 +1908,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e32" value="rep"   onchange="upd(32,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e32" value="norep" onchange="upd(32,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi32" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec32" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1944,9 +1944,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e33" value="rep"   onchange="upd(33,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e33" value="norep" onchange="upd(33,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi33" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec33" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -1980,9 +1980,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e34" value="rep"   onchange="upd(34,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e34" value="norep" onchange="upd(34,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi34" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec34" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2016,9 +2016,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e40" value="rep"   onchange="upd(40,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e40" value="norep" onchange="upd(40,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi40" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec40" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2052,9 +2052,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e43" value="rep"   onchange="upd(43,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e43" value="norep" onchange="upd(43,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi43" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec43" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2088,9 +2088,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e47" value="rep"   onchange="upd(47,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e47" value="norep" onchange="upd(47,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi47" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec47" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2124,9 +2124,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e48" value="rep"   onchange="upd(48,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e48" value="norep" onchange="upd(48,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi48" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec48" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2160,9 +2160,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e49" value="rep"   onchange="upd(49,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e49" value="norep" onchange="upd(49,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi49" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec49" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2196,9 +2196,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e53" value="rep"   onchange="upd(53,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e53" value="norep" onchange="upd(53,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi53" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec53" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2232,9 +2232,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e54" value="rep"   onchange="upd(54,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e54" value="norep" onchange="upd(54,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi54" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec54" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2268,9 +2268,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e55" value="rep"   onchange="upd(55,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e55" value="norep" onchange="upd(55,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi55" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec55" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2304,9 +2304,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e56" value="rep"   onchange="upd(56,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e56" value="norep" onchange="upd(56,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi56" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec56" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2340,9 +2340,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e57" value="rep"   onchange="upd(57,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e57" value="norep" onchange="upd(57,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi57" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec57" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2376,9 +2376,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e58" value="rep"   onchange="upd(58,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e58" value="norep" onchange="upd(58,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi58" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec58" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2412,9 +2412,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e59" value="rep"   onchange="upd(59,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e59" value="norep" onchange="upd(59,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi59" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec59" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2448,9 +2448,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e60" value="rep"   onchange="upd(60,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e60" value="norep" onchange="upd(60,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi60" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec60" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2484,9 +2484,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e80" value="rep"   onchange="upd(80,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e80" value="norep" onchange="upd(80,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi80" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec80" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2520,9 +2520,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e81" value="rep"   onchange="upd(81,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e81" value="norep" onchange="upd(81,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi81" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec81" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2556,9 +2556,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e84" value="rep"   onchange="upd(84,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e84" value="norep" onchange="upd(84,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi84" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec84" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2592,9 +2592,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e85" value="rep"   onchange="upd(85,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e85" value="norep" onchange="upd(85,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi85" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec85" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2628,9 +2628,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e86" value="rep"   onchange="upd(86,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e86" value="norep" onchange="upd(86,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi86" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec86" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2664,9 +2664,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e90" value="rep"   onchange="upd(90,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e90" value="norep" onchange="upd(90,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi90" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec90" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2700,9 +2700,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e91" value="rep"   onchange="upd(91,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e91" value="norep" onchange="upd(91,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi91" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec91" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2736,9 +2736,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e92" value="rep"   onchange="upd(92,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e92" value="norep" onchange="upd(92,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi92" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec92" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2772,9 +2772,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e93" value="rep"   onchange="upd(93,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e93" value="norep" onchange="upd(93,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi93" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec93" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2808,9 +2808,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e94" value="rep"   onchange="upd(94,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e94" value="norep" onchange="upd(94,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi94" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec94" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2844,9 +2844,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e95" value="rep"   onchange="upd(95,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e95" value="norep" onchange="upd(95,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi95" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec95" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2880,9 +2880,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e96" value="rep"   onchange="upd(96,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e96" value="norep" onchange="upd(96,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi96" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec96" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2922,9 +2922,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e61" value="rep"   onchange="upd(61,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e61" value="norep" onchange="upd(61,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi61" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec61" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2958,9 +2958,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e62" value="rep"   onchange="upd(62,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e62" value="norep" onchange="upd(62,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi62" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec62" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -2994,9 +2994,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e63" value="rep"   onchange="upd(63,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e63" value="norep" onchange="upd(63,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi63" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec63" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3030,9 +3030,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e64" value="rep"   onchange="upd(64,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e64" value="norep" onchange="upd(64,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi64" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec64" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3066,9 +3066,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e65" value="rep"   onchange="upd(65,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e65" value="norep" onchange="upd(65,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi65" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec65" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3102,9 +3102,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e66" value="rep"   onchange="upd(66,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e66" value="norep" onchange="upd(66,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi66" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec66" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3138,9 +3138,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e67" value="rep"   onchange="upd(67,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e67" value="norep" onchange="upd(67,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi67" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec67" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3174,9 +3174,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e68" value="rep"   onchange="upd(68,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e68" value="norep" onchange="upd(68,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi68" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec68" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3210,9 +3210,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e69" value="rep"   onchange="upd(69,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e69" value="norep" onchange="upd(69,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi69" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec69" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3246,9 +3246,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e70" value="rep"   onchange="upd(70,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e70" value="norep" onchange="upd(70,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi70" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec70" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3282,9 +3282,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e71" value="rep"   onchange="upd(71,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e71" value="norep" onchange="upd(71,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi71" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec71" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3318,9 +3318,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e72" value="rep"   onchange="upd(72,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e72" value="norep" onchange="upd(72,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi72" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec72" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3354,9 +3354,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e73" value="rep"   onchange="upd(73,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e73" value="norep" onchange="upd(73,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi73" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec73" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3390,9 +3390,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e74" value="rep"   onchange="upd(74,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e74" value="norep" onchange="upd(74,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi74" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec74" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3426,9 +3426,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e75" value="rep"   onchange="upd(75,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e75" value="norep" onchange="upd(75,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi75" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec75" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3462,9 +3462,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e76" value="rep"   onchange="upd(76,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e76" value="norep" onchange="upd(76,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi76" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec76" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3498,9 +3498,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e77" value="rep"   onchange="upd(77,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e77" value="norep" onchange="upd(77,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi77" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec77" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3534,9 +3534,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e78" value="rep"   onchange="upd(78,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e78" value="norep" onchange="upd(78,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi78" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec78" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3570,9 +3570,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e79" value="rep"   onchange="upd(79,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e79" value="norep" onchange="upd(79,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi79" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec79" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3606,9 +3606,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e82" value="rep"   onchange="upd(82,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e82" value="norep" onchange="upd(82,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi82" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec82" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3642,9 +3642,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e83" value="rep"   onchange="upd(83,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e83" value="norep" onchange="upd(83,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi83" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec83" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3684,9 +3684,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e98" value="rep"   onchange="upd(98,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e98" value="norep" onchange="upd(98,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi98" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec98" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3726,9 +3726,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e99" value="rep"   onchange="upd(99,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e99" value="norep" onchange="upd(99,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi99" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec99" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3762,9 +3762,9 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
   <label><input type="radio" name="e100" value="rep"   onchange="upd(100,'rep')"> ✅ Reparado</label>
   <label><input type="radio" name="e100" value="norep" onchange="upd(100,'norep')"> ❌ No reparado</label>
   <span class="tlbl">Ubicación:</span>
-  <input class="ti" type="text" placeholder="Zona..." style="min-width:120px">
+  <input class="ti" id="ubi100" type="text" placeholder="Zona..." style="min-width:120px">
   <span class="tlbl">Fecha:</span>
-  <input class="ti" type="date" style="min-width:115px">
+  <input class="ti" id="fec100" type="date" style="min-width:115px">
 </div>
 <div class="srow">
   <div class="slbl">Nombre y Firma / Name &amp; Signature of Client Conformity</div>
@@ -3773,49 +3773,238 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
 </div>
 </div>
 </div>
-<script>
-function loadRP(inp,n){
-  if(!inp.files||!inp.files[0])return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const img=document.getElementById('ri'+n);
-    document.getElementById('rph'+n).style.display='none';
-    img.style.display='block';img.src=e.target.result;
-    const rad=document.querySelector('input[name="e'+n+'"][value="rep"]');
-    if(rad&&!rad.checked){rad.checked=true;upd(n,'rep');}
-  };r.readAsDataURL(inp.files[0]);
+<script type="module">
+import { initializeApp }        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, setDoc, onSnapshot }
+                                 from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getStorage, ref, uploadString, getDownloadURL }
+                                 from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+
+// ── Config ────────────────────────────────────────────────────────────
+const firebaseConfig = {
+  apiKey:            "AIzaSyC7_I9PSkvX0iWWV4NDQWHHW2WSNlsA3pg",
+  authDomain:        "avalon-pruebas.firebaseapp.com",
+  projectId:         "avalon-pruebas",
+  storageBucket:     "avalon-pruebas.firebasestorage.app",
+  messagingSenderId: "299480644674",
+  appId:             "1:299480644674:web:4f4639a921a0ebc3ba01db"
+};
+
+const app  = initializeApp(firebaseConfig);
+const db   = getFirestore(app);
+const stor = getStorage(app);
+
+const DB          = 'snag_avalon_v5';
+const stateDocRef = doc(db, 'snaglist', 'state');
+const photosDocRef = doc(db, 'snaglist', 'photos');
+
+// ── Toast ─────────────────────────────────────────────────────────────
+function toast(msg, color) {
+  let t = document.getElementById('_toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = '_toast';
+    t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);'
+      + 'padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;'
+      + 'z-index:9999;transition:opacity .4s;pointer-events:none;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.background = color || '#444';
+  t.style.color = '#fff';
+  t.style.opacity = '1';
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => { t.style.opacity = '0'; }, 2500);
 }
-function upd(n,v){
-  const c=document.getElementById('c'+n),b=document.getElementById('b'+n);
-  c.dataset.s=v;
-  c.className=c.className.replace(/sr|sn/g,'').trim();
-  c.classList.add(v==='rep'?'sr':'sn');
-  b.textContent=v==='rep'?'Reparado':'No reparado';
-  b.className='badge '+(v==='rep'?'rep':'norep');
-  us();af();
-}
-function us(){
-  let r=0,n=0,p=0;
-  document.querySelectorAll('.card').forEach(c=>{
-    if(c.dataset.s==='rep')r++;else if(c.dataset.s==='norep')n++;else p++;
+
+// ── Collect current state from DOM ────────────────────────────────────
+function collectState() {
+  const st = {};
+  document.querySelectorAll('.card').forEach(c => {
+    const n = c.id.replace('c', '');
+    st['d' + n] = {
+      s:     c.dataset.s || 'pend',
+      ubi:   (document.getElementById('ubi' + n) || {}).value || '',
+      fecha: (document.getElementById('fec' + n) || {}).value || ''
+    };
   });
-  document.getElementById('sR').textContent=r;
-  document.getElementById('sN').textContent=n;
-  document.getElementById('sP').textContent=p;
+  return st;
 }
-let cf='all',cd='all';
-function sf(f,btn){cf=f;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('act'));btn.classList.add('act');af();}
-function filterDeck(d,btn){cd=d;document.querySelectorAll('.dnav').forEach(b=>b.classList.remove('act'));btn.classList.add('act');af();}
-function af(){
-  const q=(document.querySelector('.srch').value||'').toLowerCase();
-  document.querySelectorAll('.card').forEach(c=>{
-    const ok=(cf==='all'||c.dataset.s===cf)&&(cd==='all'||c.dataset.deck===cd)&&(!q||c.dataset.t.includes(q));
-    c.classList.toggle('hidden',!ok);
+
+// ── Debounced Firestore save ──────────────────────────────────────────
+let _saveTimer = null;
+function schedSave() {
+  clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(doSave, 900);
+}
+
+async function doSave() {
+  const st = collectState();
+  try { localStorage.setItem(DB + '_state', JSON.stringify(st)); } catch(e) {}
+  try {
+    toast('⏳ Guardando...', '#888');
+    await setDoc(stateDocRef, st, { merge: true });
+    toast('✅ Sincronizado', '#27ae60');
+  } catch(e) {
+    console.warn('Firestore save failed:', e.message);
+    toast('⚠️ Sin conexión — guardado local', '#e67e22');
+  }
+}
+
+// ── Upload repair photo ───────────────────────────────────────────────
+async function uploadPhoto(n, dataUrl) {
+  try { localStorage.setItem(DB + '_ph' + n, dataUrl); } catch(e) {}
+  try {
+    const r = ref(stor, 'repairs/photo_' + n + '.jpg');
+    await uploadString(r, dataUrl, 'data_url');
+    const url = await getDownloadURL(r);
+    const upd = {};
+    upd['p' + n] = url;
+    await setDoc(photosDocRef, upd, { merge: true });
+    toast('📷 Foto subida', '#2980b9');
+  } catch(e) {
+    console.warn('Storage upload failed:', e.message);
+    toast('⚠️ Foto guardada solo local', '#e67e22');
+  }
+}
+
+// ── Apply state to DOM ────────────────────────────────────────────────
+function applyState(st) {
+  Object.entries(st).forEach(([key, val]) => {
+    if (!key.startsWith('d')) return;
+    const n = key.slice(1);
+    const c = document.getElementById('c' + n);
+    if (!c) return;
+    if (val.s && val.s !== 'pend') {
+      const v = val.s;
+      c.dataset.s = v;
+      c.className = c.className.replace(/sr|sn/g, '').trim();
+      c.classList.add(v === 'rep' ? 'sr' : 'sn');
+      const b = document.getElementById('b' + n);
+      if (b) { b.textContent = v === 'rep' ? 'Reparado' : 'No reparado'; b.className = 'badge ' + (v === 'rep' ? 'rep' : 'norep'); }
+      const rad = document.querySelector('input[name="e' + n + '"][value="' + v + '"]');
+      if (rad) rad.checked = true;
+    }
+    const uEl = document.getElementById('ubi' + n);
+    if (uEl && val.ubi) uEl.value = val.ubi;
+    const fEl = document.getElementById('fec' + n);
+    if (fEl && val.fecha) fEl.value = val.fecha;
   });
-  document.querySelectorAll('.deck-section').forEach(s=>{
-    s.style.display=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hidden'))?'':'none';
+  us();
+}
+
+// ── Apply photos to DOM ───────────────────────────────────────────────
+function applyPhotos(ph) {
+  Object.entries(ph).forEach(([key, url]) => {
+    if (!key.startsWith('p')) return;
+    const n = key.slice(1);
+    const img  = document.getElementById('ri' + n);
+    const phEl = document.getElementById('rph' + n);
+    if (img && phEl) { phEl.style.display = 'none'; img.style.display = 'block'; img.src = url; }
   });
 }
+
+// ── Initial load ──────────────────────────────────────────────────────
+async function loadAll() {
+  // localStorage instant
+  try {
+    const lsState = JSON.parse(localStorage.getItem(DB + '_state') || '{}');
+    if (Object.keys(lsState).length) applyState(lsState);
+    for (let n = 1; n <= 100; n++) {
+      const du = localStorage.getItem(DB + '_ph' + n);
+      if (du) {
+        const img = document.getElementById('ri' + n);
+        const ph  = document.getElementById('rph' + n);
+        if (img && ph) { ph.style.display = 'none'; img.style.display = 'block'; img.src = du; }
+      }
+    }
+  } catch(e) {}
+  // Firestore realtime
+  try {
+    onSnapshot(stateDocRef,  snap => { if (snap.exists()) applyState(snap.data()); });
+    onSnapshot(photosDocRef, snap => { if (snap.exists()) applyPhotos(snap.data()); });
+  } catch(e) {
+    console.warn('Firestore listener:', e.message);
+  }
+}
+
+// ── Card functions ────────────────────────────────────────────────────
+function loadRP(inp, n) {
+  if (!inp.files || !inp.files[0]) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const img = document.getElementById('ri' + n);
+    document.getElementById('rph' + n).style.display = 'none';
+    img.style.display = 'block'; img.src = e.target.result;
+    uploadPhoto(n, e.target.result);
+    const rad = document.querySelector('input[name="e' + n + '"][value="rep"]');
+    if (rad && !rad.checked) { rad.checked = true; upd(n, 'rep'); }
+  };
+  r.readAsDataURL(inp.files[0]);
+}
+
+function upd(n, v) {
+  const c = document.getElementById('c' + n);
+  const b = document.getElementById('b' + n);
+  c.dataset.s = v;
+  c.className = c.className.replace(/sr|sn/g, '').trim();
+  c.classList.add(v === 'rep' ? 'sr' : 'sn');
+  b.textContent = v === 'rep' ? 'Reparado' : 'No reparado';
+  b.className = 'badge ' + (v === 'rep' ? 'rep' : 'norep');
+  schedSave(); us(); af();
+}
+
+function us() {
+  let r = 0, n = 0, p = 0;
+  document.querySelectorAll('.card').forEach(c => {
+    if (c.dataset.s === 'rep') r++;
+    else if (c.dataset.s === 'norep') n++;
+    else p++;
+  });
+  document.getElementById('sR').textContent = r;
+  document.getElementById('sN').textContent = n;
+  document.getElementById('sP').textContent = p;
+}
+
+let cf = 'all', cd = 'all';
+function sf(f, btn) {
+  cf = f;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('act'));
+  btn.classList.add('act'); af();
+}
+function filterDeck(d, btn) {
+  cd = d;
+  document.querySelectorAll('.dnav').forEach(b => b.classList.remove('act'));
+  btn.classList.add('act'); af();
+}
+function af() {
+  const q = (document.querySelector('.srch').value || '').toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    const ok = (cf === 'all' || c.dataset.s === cf)
+             && (cd === 'all' || c.dataset.deck === cd)
+             && (!q || c.dataset.t.includes(q));
+    c.classList.toggle('hidden', !ok);
+  });
+  document.querySelectorAll('.deck-section').forEach(s => {
+    s.style.display = [...s.querySelectorAll('.card')].some(c => !c.classList.contains('hidden')) ? '' : 'none';
+  });
+}
+
+// ── Expose to onclick handlers ────────────────────────────────────────
+window.upd        = upd;
+window.loadRP     = loadRP;
+window.sf         = sf;
+window.filterDeck = filterDeck;
+window.af         = af;
+
+// ── Init ──────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  document.querySelectorAll('.ti').forEach(inp => {
+    inp.addEventListener('change', schedSave);
+    inp.addEventListener('blur',   schedSave);
+  });
+});
 </script>
 </body>
 </html>
