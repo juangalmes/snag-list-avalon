@@ -3777,10 +3777,10 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
 import { initializeApp }   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getFirestore, doc, setDoc, onSnapshot }
                             from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import { getStorage, ref as storRef, uploadString, getDownloadURL }
+import { getStorage, ref as sRef, uploadString, getDownloadURL }
                             from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
-// ── Firebase config ───────────────────────────────────────────────────
+// ── Config ────────────────────────────────────────────────────────────
 const firebaseConfig = {
   apiKey:            "AIzaSyC7_I9PSkvX0iWWV4NDQWHHW2WSNlsA3pg",
   authDomain:        "avalon-pruebas.firebaseapp.com",
@@ -3792,9 +3792,14 @@ const firebaseConfig = {
 
 const app        = initializeApp(firebaseConfig);
 const db         = getFirestore(app);
-const stor        = getStorage(app);
+const stor       = getStorage(app);
 const DB         = 'snag_avalon_v5';
-const stateDocRef = doc(db, 'snaglist', 'state');
+
+// ── Dos documentos SEPARADOS — nunca interfieren entre sí ─────────────
+//   snaglist/state  → campos d1..d100  { s, ubi, fecha }
+//   snaglist/photos → campos p1..p100  (URL string)
+const stateDocRef  = doc(db, 'snaglist', 'state');
+const photosDocRef = doc(db, 'snaglist', 'photos');
 
 // ── Toast ─────────────────────────────────────────────────────────────
 function toast(msg, color) {
@@ -3816,7 +3821,21 @@ function toast(msg, color) {
   t._tid = setTimeout(() => { t.style.opacity = '0'; }, 2800);
 }
 
-// ── Collect status/ubi/fecha (fotos NO se incluyen aquí) ──────────────
+// ── Mostrar foto en DOM ───────────────────────────────────────────────
+function showPhoto(n, src) {
+  const img = document.getElementById('ri'  + n);
+  const ph  = document.getElementById('rph' + n);
+  if (img && ph && src) {
+    ph.style.display  = 'none';
+    img.style.display = 'block';
+    img.src = src;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────
+//  ESTADO: collectState / doSave / applyState
+//  Solo toca snaglist/state — NUNCA fotos
+// ─────────────────────────────────────────────────────────────────────
 function collectState() {
   const st = {};
   document.querySelectorAll('.card').forEach(c => {
@@ -3830,7 +3849,6 @@ function collectState() {
   return st;
 }
 
-// ── Debounced save de estados (sin tocar fotos) ───────────────────────
 let _saveTimer = null;
 function schedSave() {
   clearTimeout(_saveTimer);
@@ -3844,56 +3862,17 @@ async function doSave() {
     await setDoc(stateDocRef, st, { merge: true });
     toast('✅ Sincronizado', '#27ae60');
   } catch(e) {
-    console.warn('Firestore save failed:', e.message);
+    console.warn('Firestore state save failed:', e.message);
     toast('⚠️ Sin conexión — guardado local', '#e67e22');
   }
 }
 
-// ── Upload foto de reparación (por card, merge independiente) ─────────
-async function uploadRepairPhoto(n, dataUrl) {
-  // 1. localStorage siempre (fallback inmediato)
-  try { localStorage.setItem(DB + '_ph' + n, dataUrl); } catch(e) {}
-
-  // 2. Firebase Storage
-  try {
-    toast('⏳ Subiendo foto...', '#888');
-    const fileRef = storRef(stor, 'repairs/photo_' + n + '.jpg');
-    await uploadString(fileRef, dataUrl, 'data_url');
-    const url = await getDownloadURL(fileRef);
-
-    // 3. Guardar URL en Firestore SOLO para esta card (merge: true)
-    //    Estructura: snaglist/state  →  d{n}.photoUrl = url
-    //    Nunca toca los campos d{m} de otras cards
-    const patch = {};
-    patch['d' + n] = { photoUrl: url };
-    await setDoc(stateDocRef, patch, { merge: true });
-    toast('📷 Foto guardada en nube', '#27ae60');
-  } catch(e) {
-    console.warn('Photo upload failed (guardada solo local):', e.message);
-    toast('⚠️ Foto guardada solo en este dispositivo', '#e67e22');
-  }
-}
-
-// ── Mostrar foto en DOM ───────────────────────────────────────────────
-function showPhoto(n, src) {
-  const img  = document.getElementById('ri'  + n);
-  const ph   = document.getElementById('rph' + n);
-  if (img && ph && src) {
-    ph.style.display  = 'none';
-    img.style.display = 'block';
-    img.src = src;
-  }
-}
-
-// ── Apply state + fotos desde Firestore / localStorage ────────────────
 function applyState(st) {
   Object.entries(st).forEach(([key, val]) => {
     if (!key.startsWith('d')) return;
     const n = key.slice(1);
     const c = document.getElementById('c' + n);
     if (!c) return;
-
-    // Estado (reparado / no reparado)
     if (val.s && val.s !== 'pend') {
       const v = val.s;
       c.dataset.s = v;
@@ -3907,56 +3886,95 @@ function applyState(st) {
       const rad = document.querySelector('input[name="e' + n + '"][value="' + v + '"]');
       if (rad) rad.checked = true;
     }
-
-    // Ubicación y fecha
     const uEl = document.getElementById('ubi' + n);
     if (uEl && val.ubi) uEl.value = val.ubi;
     const fEl = document.getElementById('fec' + n);
     if (fEl && val.fecha) fEl.value = val.fecha;
-
-    // Foto de reparación (cada card tiene la suya)
-    if (val.photoUrl) showPhoto(n, val.photoUrl);
   });
   us();
 }
 
-// ── Carga inicial ──────────────────────────────────────────────────────
-async function loadAll() {
-  // localStorage (instantáneo, funciona offline)
+// ─────────────────────────────────────────────────────────────────────
+//  FOTOS: uploadRepairPhoto / applyPhotos
+//  Solo toca snaglist/photos — NUNCA el estado
+// ─────────────────────────────────────────────────────────────────────
+async function uploadRepairPhoto(n, dataUrl) {
+  // Mostrar en DOM inmediatamente (ya se hizo antes de llamar aquí)
   try {
-    const lsState = JSON.parse(localStorage.getItem(DB + '_state') || '{}');
-    if (Object.keys(lsState).length) applyState(lsState);
-    for (let n = 1; n <= 100; n++) {
-      const du = localStorage.getItem(DB + '_ph' + n);
-      if (du) showPhoto(n, du);
-    }
-  } catch(e) {}
+    toast('⏳ Subiendo foto...', '#888');
 
-  // Firestore: listener único en stateDocRef (contiene estados + photoUrls)
-  try {
-    onSnapshot(stateDocRef, snap => {
-      if (snap.exists()) applyState(snap.data());
-    });
+    // 1. Subir archivo a Firebase Storage
+    const fileRef = sRef(stor, 'repairs/photo_' + n + '.jpg');
+    await uploadString(fileRef, dataUrl, 'data_url');
+    const url = await getDownloadURL(fileRef);
+
+    // 2. Guardar SOLO la URL (string pequeño) en localStorage
+    try { localStorage.setItem(DB + '_phUrl' + n, url); } catch(e) {}
+
+    // 3. Guardar URL en snaglist/photos  (merge:true — no toca otras fotos)
+    const patch = {};
+    patch['p' + n] = url;
+    await setDoc(photosDocRef, patch, { merge: true });
+
+    toast('📷 Foto guardada en nube', '#27ae60');
   } catch(e) {
-    console.warn('Firestore onSnapshot failed:', e.message);
+    console.warn('Photo upload error:', e.message);
+    // Fallback: guardar base64 en localStorage (solo este dispositivo)
+    try { localStorage.setItem(DB + '_ph' + n, dataUrl); } catch(e2) {}
+    toast('⚠️ Foto solo en este dispositivo (sin conexión)', '#e67e22');
   }
 }
 
-// ── loadRP: carga el archivo y lanza subida por card ─────────────────
+function applyPhotos(ph) {
+  // ph = { p1: 'url1', p5: 'url5', ... }
+  Object.entries(ph).forEach(([key, url]) => {
+    if (!key.startsWith('p') || !url) return;
+    const n = key.slice(1);
+    showPhoto(n, url);
+    // Actualizar localStorage con la URL (sobrescribe posible base64 antiguo)
+    try { localStorage.setItem(DB + '_phUrl' + n, url); } catch(e) {}
+  });
+}
+
+// ── Carga inicial ──────────────────────────────────────────────────────
+async function loadAll() {
+  // 1. localStorage — instantáneo y funciona sin red
+  try {
+    const lsState = JSON.parse(localStorage.getItem(DB + '_state') || '{}');
+    if (Object.keys(lsState).length) applyState(lsState);
+  } catch(e) {}
+  for (let n = 1; n <= 100; n++) {
+    // Primero URL guardada (más ligera), luego base64 de emergencia
+    const url = localStorage.getItem(DB + '_phUrl' + n);
+    if (url) { showPhoto(n, url); continue; }
+    const b64 = localStorage.getItem(DB + '_ph'    + n);
+    if (b64) showPhoto(n, b64);
+  }
+
+  // 2. Firestore realtime — dos listeners completamente independientes
+  try {
+    onSnapshot(stateDocRef,  snap => { if (snap.exists()) applyState(snap.data()); });
+    onSnapshot(photosDocRef, snap => { if (snap.exists()) applyPhotos(snap.data()); });
+  } catch(e) {
+    console.warn('Firestore listeners failed:', e.message);
+  }
+}
+
+// ── loadRP — llamada SOLO desde onchange inline del HTML ─────────────
+//   NO se añade addEventListener('change') desde JS para evitar doble llamada
 function loadRP(inp, n) {
   if (!inp.files || !inp.files[0]) return;
   const reader = new FileReader();
   reader.onload = e => {
-    showPhoto(n, e.target.result);
-    uploadRepairPhoto(n, e.target.result);
-    // Auto-marcar como Reparado
+    showPhoto(n, e.target.result);             // mostrar base64 inmediatamente
+    uploadRepairPhoto(n, e.target.result);     // subir a Storage + Firestore
     const rad = document.querySelector('input[name="e' + n + '"][value="rep"]');
     if (rad && !rad.checked) { rad.checked = true; upd(n, 'rep'); }
   };
   reader.readAsDataURL(inp.files[0]);
 }
 
-// ── Funciones de estado (NO modificadas) ────────────────────────────
+// ── Funciones de estado (SIN tocar) ──────────────────────────────────
 function upd(n, v) {
   const c = document.getElementById('c' + n);
   const b = document.getElementById('b' + n);
@@ -4005,7 +4023,7 @@ function af() {
   });
 }
 
-// ── Exponer funciones al scope global (onclick inline) ───────────────
+// ── Exponer al scope global (onclick inline en HTML) ──────────────────
 window.upd        = upd;
 window.loadRP     = loadRP;
 window.sf         = sf;
@@ -4015,30 +4033,13 @@ window.af         = af;
 // ── Init ──────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   loadAll();
-
-  // Inputs de ubicación y fecha → guardar al cambiar
+  // Inputs ubi/fecha → guardar estado al cambiar
   document.querySelectorAll('.ti').forEach(inp => {
     inp.addEventListener('change', schedSave);
     inp.addEventListener('blur',   schedSave);
   });
-
-  // Garantizar que TODOS los .pbox.rep abren su file picker
-  // (refuerzo por si algún onclick inline no dispara en móvil)
-  document.querySelectorAll('.pbox.rep').forEach(box => {
-    const n = box.id.replace('rb', '');
-    box.addEventListener('click', () => {
-      const fi = document.getElementById('fi' + n);
-      if (fi) fi.click();
-    });
-  });
-
-  // Garantizar que TODOS los file inputs llaman a loadRP con su ID correcto
-  document.querySelectorAll('input[type="file"][id^="fi"]').forEach(fi => {
-    fi.addEventListener('change', function() {
-      const n = this.id.replace('fi', '');
-      loadRP(this, n);
-    });
-  });
+  // NOTA: NO se añaden listeners extra para .pbox.rep ni para file inputs
+  // Los onclick/onchange inline del HTML son suficientes y evitan llamadas dobles
 });
 </script>
 </body>
