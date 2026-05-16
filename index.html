@@ -3774,13 +3774,13 @@ body{font-family:-apple-system,Aptos,Arial,sans-serif;font-size:11pt;background:
 </div>
 </div>
 <script type="module">
-import { initializeApp }        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { initializeApp }   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getFirestore, doc, setDoc, onSnapshot }
-                                 from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import { getStorage, ref, uploadString, getDownloadURL }
-                                 from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+                            from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getStorage, ref as storRef, uploadString, getDownloadURL }
+                            from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
-// ── Config ────────────────────────────────────────────────────────────
+// ── Firebase config ───────────────────────────────────────────────────
 const firebaseConfig = {
   apiKey:            "AIzaSyC7_I9PSkvX0iWWV4NDQWHHW2WSNlsA3pg",
   authDomain:        "avalon-pruebas.firebaseapp.com",
@@ -3790,13 +3790,11 @@ const firebaseConfig = {
   appId:             "1:299480644674:web:4f4639a921a0ebc3ba01db"
 };
 
-const app  = initializeApp(firebaseConfig);
-const db   = getFirestore(app);
-const stor = getStorage(app);
-
-const DB          = 'snag_avalon_v5';
+const app        = initializeApp(firebaseConfig);
+const db         = getFirestore(app);
+const stor        = getStorage(app);
+const DB         = 'snag_avalon_v5';
 const stateDocRef = doc(db, 'snaglist', 'state');
-const photosDocRef = doc(db, 'snaglist', 'photos');
 
 // ── Toast ─────────────────────────────────────────────────────────────
 function toast(msg, color) {
@@ -3804,9 +3802,10 @@ function toast(msg, color) {
   if (!t) {
     t = document.createElement('div');
     t.id = '_toast';
-    t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);'
-      + 'padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;'
-      + 'z-index:9999;transition:opacity .4s;pointer-events:none;';
+    t.style.cssText =
+      'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);' +
+      'padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;' +
+      'z-index:9999;transition:opacity .4s;pointer-events:none;';
     document.body.appendChild(t);
   }
   t.textContent = msg;
@@ -3814,10 +3813,10 @@ function toast(msg, color) {
   t.style.color = '#fff';
   t.style.opacity = '1';
   clearTimeout(t._tid);
-  t._tid = setTimeout(() => { t.style.opacity = '0'; }, 2500);
+  t._tid = setTimeout(() => { t.style.opacity = '0'; }, 2800);
 }
 
-// ── Collect current state from DOM ────────────────────────────────────
+// ── Collect status/ubi/fecha (fotos NO se incluyen aquí) ──────────────
 function collectState() {
   const st = {};
   document.querySelectorAll('.card').forEach(c => {
@@ -3831,13 +3830,12 @@ function collectState() {
   return st;
 }
 
-// ── Debounced Firestore save ──────────────────────────────────────────
+// ── Debounced save de estados (sin tocar fotos) ───────────────────────
 let _saveTimer = null;
 function schedSave() {
   clearTimeout(_saveTimer);
   _saveTimer = setTimeout(doSave, 900);
 }
-
 async function doSave() {
   const st = collectState();
   try { localStorage.setItem(DB + '_state', JSON.stringify(st)); } catch(e) {}
@@ -3851,98 +3849,114 @@ async function doSave() {
   }
 }
 
-// ── Upload repair photo ───────────────────────────────────────────────
-async function uploadPhoto(n, dataUrl) {
+// ── Upload foto de reparación (por card, merge independiente) ─────────
+async function uploadRepairPhoto(n, dataUrl) {
+  // 1. localStorage siempre (fallback inmediato)
   try { localStorage.setItem(DB + '_ph' + n, dataUrl); } catch(e) {}
+
+  // 2. Firebase Storage
   try {
-    const r = ref(stor, 'repairs/photo_' + n + '.jpg');
-    await uploadString(r, dataUrl, 'data_url');
-    const url = await getDownloadURL(r);
-    const upd = {};
-    upd['p' + n] = url;
-    await setDoc(photosDocRef, upd, { merge: true });
-    toast('📷 Foto subida', '#2980b9');
+    toast('⏳ Subiendo foto...', '#888');
+    const fileRef = storRef(stor, 'repairs/photo_' + n + '.jpg');
+    await uploadString(fileRef, dataUrl, 'data_url');
+    const url = await getDownloadURL(fileRef);
+
+    // 3. Guardar URL en Firestore SOLO para esta card (merge: true)
+    //    Estructura: snaglist/state  →  d{n}.photoUrl = url
+    //    Nunca toca los campos d{m} de otras cards
+    const patch = {};
+    patch['d' + n] = { photoUrl: url };
+    await setDoc(stateDocRef, patch, { merge: true });
+    toast('📷 Foto guardada en nube', '#27ae60');
   } catch(e) {
-    console.warn('Storage upload failed:', e.message);
-    toast('⚠️ Foto guardada solo local', '#e67e22');
+    console.warn('Photo upload failed (guardada solo local):', e.message);
+    toast('⚠️ Foto guardada solo en este dispositivo', '#e67e22');
   }
 }
 
-// ── Apply state to DOM ────────────────────────────────────────────────
+// ── Mostrar foto en DOM ───────────────────────────────────────────────
+function showPhoto(n, src) {
+  const img  = document.getElementById('ri'  + n);
+  const ph   = document.getElementById('rph' + n);
+  if (img && ph && src) {
+    ph.style.display  = 'none';
+    img.style.display = 'block';
+    img.src = src;
+  }
+}
+
+// ── Apply state + fotos desde Firestore / localStorage ────────────────
 function applyState(st) {
   Object.entries(st).forEach(([key, val]) => {
     if (!key.startsWith('d')) return;
     const n = key.slice(1);
     const c = document.getElementById('c' + n);
     if (!c) return;
+
+    // Estado (reparado / no reparado)
     if (val.s && val.s !== 'pend') {
       const v = val.s;
       c.dataset.s = v;
       c.className = c.className.replace(/sr|sn/g, '').trim();
       c.classList.add(v === 'rep' ? 'sr' : 'sn');
       const b = document.getElementById('b' + n);
-      if (b) { b.textContent = v === 'rep' ? 'Reparado' : 'No reparado'; b.className = 'badge ' + (v === 'rep' ? 'rep' : 'norep'); }
+      if (b) {
+        b.textContent = v === 'rep' ? 'Reparado' : 'No reparado';
+        b.className = 'badge ' + (v === 'rep' ? 'rep' : 'norep');
+      }
       const rad = document.querySelector('input[name="e' + n + '"][value="' + v + '"]');
       if (rad) rad.checked = true;
     }
+
+    // Ubicación y fecha
     const uEl = document.getElementById('ubi' + n);
     if (uEl && val.ubi) uEl.value = val.ubi;
     const fEl = document.getElementById('fec' + n);
     if (fEl && val.fecha) fEl.value = val.fecha;
+
+    // Foto de reparación (cada card tiene la suya)
+    if (val.photoUrl) showPhoto(n, val.photoUrl);
   });
   us();
 }
 
-// ── Apply photos to DOM ───────────────────────────────────────────────
-function applyPhotos(ph) {
-  Object.entries(ph).forEach(([key, url]) => {
-    if (!key.startsWith('p')) return;
-    const n = key.slice(1);
-    const img  = document.getElementById('ri' + n);
-    const phEl = document.getElementById('rph' + n);
-    if (img && phEl) { phEl.style.display = 'none'; img.style.display = 'block'; img.src = url; }
-  });
-}
-
-// ── Initial load ──────────────────────────────────────────────────────
+// ── Carga inicial ──────────────────────────────────────────────────────
 async function loadAll() {
-  // localStorage instant
+  // localStorage (instantáneo, funciona offline)
   try {
     const lsState = JSON.parse(localStorage.getItem(DB + '_state') || '{}');
     if (Object.keys(lsState).length) applyState(lsState);
     for (let n = 1; n <= 100; n++) {
       const du = localStorage.getItem(DB + '_ph' + n);
-      if (du) {
-        const img = document.getElementById('ri' + n);
-        const ph  = document.getElementById('rph' + n);
-        if (img && ph) { ph.style.display = 'none'; img.style.display = 'block'; img.src = du; }
-      }
+      if (du) showPhoto(n, du);
     }
   } catch(e) {}
-  // Firestore realtime
+
+  // Firestore: listener único en stateDocRef (contiene estados + photoUrls)
   try {
-    onSnapshot(stateDocRef,  snap => { if (snap.exists()) applyState(snap.data()); });
-    onSnapshot(photosDocRef, snap => { if (snap.exists()) applyPhotos(snap.data()); });
+    onSnapshot(stateDocRef, snap => {
+      if (snap.exists()) applyState(snap.data());
+    });
   } catch(e) {
-    console.warn('Firestore listener:', e.message);
+    console.warn('Firestore onSnapshot failed:', e.message);
   }
 }
 
-// ── Card functions ────────────────────────────────────────────────────
+// ── loadRP: carga el archivo y lanza subida por card ─────────────────
 function loadRP(inp, n) {
   if (!inp.files || !inp.files[0]) return;
-  const r = new FileReader();
-  r.onload = e => {
-    const img = document.getElementById('ri' + n);
-    document.getElementById('rph' + n).style.display = 'none';
-    img.style.display = 'block'; img.src = e.target.result;
-    uploadPhoto(n, e.target.result);
+  const reader = new FileReader();
+  reader.onload = e => {
+    showPhoto(n, e.target.result);
+    uploadRepairPhoto(n, e.target.result);
+    // Auto-marcar como Reparado
     const rad = document.querySelector('input[name="e' + n + '"][value="rep"]');
     if (rad && !rad.checked) { rad.checked = true; upd(n, 'rep'); }
   };
-  r.readAsDataURL(inp.files[0]);
+  reader.readAsDataURL(inp.files[0]);
 }
 
+// ── Funciones de estado (NO modificadas) ────────────────────────────
 function upd(n, v) {
   const c = document.getElementById('c' + n);
   const b = document.getElementById('b' + n);
@@ -3986,11 +4000,12 @@ function af() {
     c.classList.toggle('hidden', !ok);
   });
   document.querySelectorAll('.deck-section').forEach(s => {
-    s.style.display = [...s.querySelectorAll('.card')].some(c => !c.classList.contains('hidden')) ? '' : 'none';
+    s.style.display =
+      [...s.querySelectorAll('.card')].some(c => !c.classList.contains('hidden')) ? '' : 'none';
   });
 }
 
-// ── Expose to onclick handlers ────────────────────────────────────────
+// ── Exponer funciones al scope global (onclick inline) ───────────────
 window.upd        = upd;
 window.loadRP     = loadRP;
 window.sf         = sf;
@@ -4000,9 +4015,29 @@ window.af         = af;
 // ── Init ──────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   loadAll();
+
+  // Inputs de ubicación y fecha → guardar al cambiar
   document.querySelectorAll('.ti').forEach(inp => {
     inp.addEventListener('change', schedSave);
     inp.addEventListener('blur',   schedSave);
+  });
+
+  // Garantizar que TODOS los .pbox.rep abren su file picker
+  // (refuerzo por si algún onclick inline no dispara en móvil)
+  document.querySelectorAll('.pbox.rep').forEach(box => {
+    const n = box.id.replace('rb', '');
+    box.addEventListener('click', () => {
+      const fi = document.getElementById('fi' + n);
+      if (fi) fi.click();
+    });
+  });
+
+  // Garantizar que TODOS los file inputs llaman a loadRP con su ID correcto
+  document.querySelectorAll('input[type="file"][id^="fi"]').forEach(fi => {
+    fi.addEventListener('change', function() {
+      const n = this.id.replace('fi', '');
+      loadRP(this, n);
+    });
   });
 });
 </script>
